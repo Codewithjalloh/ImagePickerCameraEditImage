@@ -59,10 +59,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         cutImage.image = imgEdited
         
         self.dismissViewControllerAnimated(true, completion: nil)
-        
-        
     
+    }
     
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 
