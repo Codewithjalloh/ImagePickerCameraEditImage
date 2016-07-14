@@ -41,6 +41,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let img = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let imgEdited = info[UIImagePickerControllerEditedImage] as! UIImage
+        let imgData = UIImagePNGRepresentation(img)! as NSData
+        
+        // save in photo album 
+        UIImageWriteToSavedPhotosAlbum(img, self, "image:didFinishSavingWithError:contextInfo:", nil)
+        
+        
+        // save in documents 
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last
+        
+        let filePath = (documentsPath! as NSString).stringByAppendingPathComponent("pic.png")
+        imgData.writeToFile(filePath, atomically: true)
+        
+        myImage.image = img
+        cutImage.image = imgEdited
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        
+    
     
     }
 
