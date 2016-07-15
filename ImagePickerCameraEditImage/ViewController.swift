@@ -62,7 +62,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     }
     
-
+    // didFinishSavingWithError function 
     func image(image: UIImage, didFinishSavingWithError error:NSErrorPointer, contextInfo: UnsafePointer<()>) {
         if (error != nil) {
             print("error image \(error.debugDescription)")
