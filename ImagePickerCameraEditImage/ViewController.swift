@@ -62,6 +62,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     }
     
+
+    func image(image: UIImage, didFinishSavingWithError error:NSErrorPointer, contextInfo: UnsafePointer<()>) {
+        if (error != nil) {
+            print("error image \(error.debugDescription)")
+        }
+    }
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
